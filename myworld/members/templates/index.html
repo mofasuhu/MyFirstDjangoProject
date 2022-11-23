@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'myfirst.css' %}">
+
+</head>
+<body>
+<div style="margin: 0.25cm;width: 34cm;height: 2cm;">
+<h1 style="float:left">Members - {% now "Y.m.d l h:i:s A" %}</h1>
+<h2 style="float:right"><a href="testing/">Testing Page</a></h2>
+</div>
+
+
+<h1><a href="{% url 'add' %}">Add member</a></h2>
+
+  
+
+
+
+<table>
+<tr>
+  <th>ID</th>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Delete</th>
+</tr>
+  {% for x in mymembers %}
+<tr>
+<td><a href="{% url 'update' x.id %}">{{ x.id }}</a></td>
+<td>{{ x.firstname }}</td>
+<td>{{ x.lastname }}</td>
+<td><a href="{% url 'delete' x.id %}">delete</a></td>
+</tr>
+{% endfor %}
+</table>
+
+
+
+</body>
+</html>

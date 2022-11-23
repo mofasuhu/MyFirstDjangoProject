@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="{% static 'myfirst.css' %}">
+<script src="{% static 'myfirst.js' %}"></script>
+<body>
+
+<h1><a href="{% url 'index' %}">Members</a></h1>
+<p>
+<button onclick="myFunction()"><b>Click me!</b></button>
+</p>
+
+<img src="{% static 'mee.jpg' %}" style="max-height:5cm;">
+
+<ol>
+  {% for x in mymembers %}
+    <li>
+     <b>{{ x.firstname }} {{ x.lastname }}</b> <i>id({{ x.id }})</i>
+    </li>
+  {% endfor %}
+</ol>
+
+
+
+</body>
+</html>
